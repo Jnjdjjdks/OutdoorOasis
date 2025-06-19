@@ -1,0 +1,563 @@
+/* General Body & Typography */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is imported in HTML */
+    background-color: #f0f2f5; /* Light gray background, similar to the image */
+    color: #333; /* Default text color */
+}
+
+/* Container for main content */
+.container {
+    width: 1200px; /* Wider container based on image */
+    margin: auto;
+    max-width: 95vw; /* Adjust max-width for slightly more space */
+    text-align: center; /* Centering for overall layout, individual cards are left-aligned */
+    padding: 20px 0; /* More padding top/bottom */
+    transition: transform .5s;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between; /* This will spread out title, nav, and cart icon */
+    align-items: center;
+    padding: 15px 30px; /* Increased padding for header */
+    background-color: #222; /* Darker header background */
+    color: #eee; /* Light text color for header */
+    border-radius: 8px; /* Slightly rounded corners for the header */
+    margin-bottom: 30px; /* More space below header */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for header */
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px; /* Space between nav links */
+}
+
+.header-nav .nav-link {
+    color: #bbb; /* Muted light gray for nav links */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.header-nav .nav-link:hover {
+    color: #fff; /* White on hover */
+}
+
+.header-nav .nav-link.active { /* If you want to highlight the current page */
+    color: #fff;
+}
+
+/* Specific styling for the 'OutdoorOasis' text */
+.title {
+    font-size: 1.8em; /* Adjusted font size for title */
+    font-weight: 700;
+    letter-spacing: 0.5px; /* Reduced letter spacing */
+    color: #eee; /* Light color for the title */
+    margin-right: auto; /* Pushes the title to the left (not strictly needed with space-between) */
+    margin-left: 0; /* Ensure it stays left */
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+}
+
+/* Re-enable and style the cart icon */
+.icon-cart {
+    display: block; /* Make it visible */
+    position: relative; /* For positioning the span */
+    cursor: pointer;
+    margin-left: 30px; /* Add some space between nav and cart icon */
+}
+
+.icon-cart svg {
+    width: 30px;
+    height: 30px;
+    fill: #bbb; /* Color of the cart icon, matches nav links */
+    transition: fill 0.3s ease;
+}
+
+.icon-cart svg:hover {
+    fill: #fff; /* White on hover, matches nav links */
+}
+
+.icon-cart span {
+    position: absolute;
+    background-color: #ff4757; /* A vibrant red for the notification count */
+    width: 20px; /* Slightly smaller count bubble */
+    height: 20px; /* Slightly smaller count bubble */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.7em; /* Smaller font size for count */
+    top: -5px; /* Adjusted position */
+    right: -5px; /* Adjusted position */
+    border: 1px solid #222; /* Border matching header background */
+    font-weight: 600;
+}
+
+
+/* Product List Grid */
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive columns */
+    gap: 25px; /* Space between product cards */
+    text-align: left; /* Align text within cards to the left */
+}
+
+/* Individual Product Item Card */
+.listProduct .item {
+    background-color: #ffffff;
+    padding: 25px; /* More padding inside the card */
+    border-radius: 10px; /* Consistent border-radius with header */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Softer, more refined shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Push button to bottom */
+}
+
+.listProduct .item:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12); /* Slightly more prominent shadow on hover */
+}
+
+/* Product Image (if added dynamically) */
+.listProduct .item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, crop if necessary */
+    border-radius: 5px; /* Slight roundness for images */
+    margin-bottom: 15px; /* Space below image */
+}
+
+/* Product Title (H2) */
+.listProduct .item h2 {
+    font-weight: 600; /* Bolder product titles */
+    font-size: 1.2em; /* Slightly larger product titles */
+    margin: 0 0 5px 0; /* Remove default margins, add small bottom margin */
+    color: #333;
+}
+
+/* Product Price */
+.listProduct .item .price {
+    font-weight: 700; /* Bolder price */
+    font-size: 1.4em; /* Larger price font */
+    color: #333; /* Darker price text */
+    margin-bottom: 10px;
+    letter-spacing: normal; /* Remove letter spacing from price */
+}
+
+/* Product Description */
+.listProduct .item .description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px; /* Space before the button */
+    line-height: 1.5;
+    flex-grow: 1; /* Allows description to take up available space, pushing button down */
+}
+
+/* Add to Cart Button */
+.listProduct .item button {
+    background-color: #7d7d7d; /* Dark gray button background */
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* More padding for button */
+    border-radius: 6px; /* Slightly rounded corners for the button */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Make button full width of the card */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle button shadow */
+}
+
+.listProduct .item button:hover {
+    background-color: #222; /* Darker on hover */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* More prominent shadow on hover */
+}
+
+/* Cart Tab (Side Panel) - Keep existing functionality */
+.cartTab {
+    width: 400px;
+    background-color: #2e2e2e; /* Slightly lighter dark gray for cart */
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    z-index: 1000; /* Ensure cart is on top */
+}
+
+body.showCart .cartTab {
+    right: 0;
+}
+
+body.showCart .container {
+    transform: translateX(-250px); /* Push main content */
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 600;
+    color: #eee; /* Keep cart title light */
+    border-bottom: 1px solid #444; /* Darker separator */
+    text-align: center; /* Center cart title */
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #444; /* Darker separator */
+}
+
+.cartTab button {
+    background-color: #a0a0a0; /* A modern green for primary actions (checkout) */
+    color: #fff;
+    border: none;
+    font-family: Poppins;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cartTab button:hover {
+    background-color: #4CAF50; /* Slightly darker green on hover */
+    transform: translateY(-2px);
+}
+
+.cartTab .close {
+    background-color: #000000; /* Muted gray for close button */
+    color: #c5c5c5;
+}
+
+.cartTab .close:hover {
+    background-color: #d21313; /* Lighter gray on hover for close */
+}
+
+/* Cart Item List */
+.listCart {
+    overflow: auto;
+    padding: 20px; /* Add padding to the cart list */
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0;
+}
+
+.listCart .item {
+    display: grid;
+    grid-template-columns: 80px 1fr 60px 80px; /* Adjust columns: img, name/price, quantity, total */
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0; /* Padding for each item */
+    border-bottom: 1px dashed #555; /* Dashed separator for items */
+    color: #eee;
+}
+.listCart .item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.listCart .item img {
+    width: 100%;
+    height: 80px; /* Fixed height for cart item images */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.listCart .item .name {
+    font-weight: 500;
+    font-size: 1em;
+    color: #fff;
+}
+
+.listCart .item .price {
+    font-size: 0.9em;
+    color: #bbb; /* Muted price in cart */
+}
+
+.listCart .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.listCart .quantity span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: #555;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.listCart .quantity span:hover {
+    background-color: #777;
+}
+
+.listCart .quantity span:nth-child(2) { /* The actual number */
+    background-color: transparent;
+    color: #fff;
+    cursor: auto;
+    width: auto;
+    height: auto;
+    padding: 0 5px;
+    font-weight: 700;
+}
+
+.listCart .item .totalPrice {
+    font-weight: 700;
+    color: #4CAF50; /* Green for total price in cart */
+    font-size: 1.1em;
+    text-align: right;
+}
+
+/* Footer Styling - Modern Design */
+.footer {
+    background-color: #222; /* Dark background matching header */
+    color: #eee; /* Light text color */
+    padding: 50px 0 20px; /* Increased top padding, standard bottom */
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px; /* Space above the footer */
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left; /* Align text within footer columns */
+}
+
+.footer-column h3 {
+    color: #fff; /* White headings */
+    font-size: 1.3em;
+    margin-bottom: 25px; /* More space below heading */
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px; /* Underline for headings */
+    height: 3px;
+    background-color: #f7f7f7; /* Accent color matching cart count */
+}
+
+.footer-column p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #ffffff; /* Muted text */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px; /* Space between list items */
+}
+
+.footer-column ul li a {
+    color: #585dbd; /* Muted link color */
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #fff; /* White on hover */
+}
+
+.footer-column.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer-column.contact-info p i {
+    margin-right: 10px;
+    color: #ffffff; /* Accent color for icons */
+    font-size: 1.1em;
+}
+
+.social-icons {
+    margin-top: 25px; /* Space above social icons */
+    display: flex;
+    gap: 15px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #bbb; /* Muted color for social icons */
+    font-size: 1.4em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #555; /* Subtle border */
+    border-radius: 50%; /* Circular icons */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #ffffff; /* Accent background on hover */
+    color: #5149bc; /* White icon on hover */
+    border-color: #a7a5a5; /* Accent border on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #333; /* Separator above copyright */
+    color: #aaa; /* Lighter copyright text */
+    font-size: 0.9em;
+}
+
+/* Responsive Media Queries */
+@media only screen and (max-width: 1250px) {
+    .container {
+        width: 95vw; /* Adjust for larger screens to give some margin */
+    }
+    .footer-container {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .listProduct {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .header-nav {
+        gap: 20px;
+    }
+    .title {
+        font-size: 1.5em;
+    }
+    .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .footer-column {
+        text-align: left; /* Ensure alignment */
+    }
+    .footer-column h3::after {
+        left: 0; /* Keep underline left-aligned */
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .listProduct {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    header {
+        flex-direction: row; /* Keep header items in a row if possible */
+        flex-wrap: wrap; /* Allow wrapping if space is tight */
+        justify-content: space-between; /* Keep space-between */
+        padding: 15px;
+    }
+    .header-nav {
+        width: auto; /* Don't force full width */
+        justify-content: flex-start; /* Align nav to start */
+        order: 2; /* Put nav below title on small screens */
+        flex-basis: 100%; /* Take full width for nav if it wraps */
+        margin-top: 10px; /* Space between title/cart and nav */
+        margin-right: 0; /* Reset margin */
+    }
+    .title {
+        font-size: 1.3em;
+        margin-right: auto; /* Push title left */
+        margin-left: 0;
+        order: 1; /* Put title first */
+    }
+    .icon-cart {
+        order: 3; /* Put cart icon last */
+        margin-left: 0; /* Reset margin */
+    }
+    .cartTab {
+        width: 100vw;
+    }
+    body.showCart .container {
+        transform: translateX(0);
+    }
+    .listCart .item {
+        grid-template-columns: 60px 1fr; /* Stack on small screens */
+        gap: 10px;
+    }
+    .listCart .item .name {
+        grid-column: 2 / -1; /* Name takes remaining space */
+        text-align: left;
+    }
+    .listCart .item .price {
+        grid-column: 2 / -1;
+        text-align: left;
+    }
+    .listCart .quantity {
+        grid-column: 1 / 2; /* Quantity below image */
+        margin-left: auto;
+    }
+    .listCart .item .totalPrice {
+        grid-column: 2 / -1;
+        text-align: right;
+    }
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack columns on very small screens */
+        text-align: center; /* Center align footer content */
+    }
+    .footer-column h3::after {
+        left: 50%; /* Center underline for centered text */
+        transform: translateX(-50%);
+    }
+    .footer-column.contact-info p {
+        justify-content: center; /* Center contact info lines */
+    }
+    .social-icons {
+        justify-content: center; /* Center social icons */
+    }
+}
+
+/* Very Small Screens */
+@media only screen and (max-width: 480px) {
+    .container {
+        padding: 10px 0;
+    }
+    header {
+        padding: 10px;
+    }
+    .listProduct .item {
+        padding: 15px;
+    }
+    .listProduct .item h2 {
+        font-size: 1.1em;
+    }
+    .listProduct .item .price {
+        font-size: 1.2em;
+    }
+    .listProduct .item button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+}

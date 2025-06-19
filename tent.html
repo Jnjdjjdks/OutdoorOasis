@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
   <title>Camping Tents - OutdoorOasis</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" >
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -74,7 +74,7 @@
       line-height: 1.6;
       color: #555555;
     }
-    
+
     /* Improved Product Grid */
     .products-container {
       display: flex;
@@ -82,7 +82,7 @@
       gap: 30px;
       justify-content: center;
     }
-    
+
     .product-card {
       background: #fff;
       border-radius: 10px;
@@ -94,49 +94,49 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     .product-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
-    
+
     .product-image-container {
       height: 250px;
       overflow: hidden;
     }
-    
+
     .product-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
-    
+
     .product-card:hover .product-image {
       transform: scale(1.03);
     }
-    
+
     .product-info {
       padding: 20px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
-    
+
     .product-title {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 8px;
       color: #252525;
     }
-    
+
     .product-price {
       font-size: 20px;
       font-weight: 700;
       color: #4A4A4A;
       margin-bottom: 15px;
     }
-    
+
     .product-description {
       font-size: 14px;
       color: #666;
@@ -144,7 +144,7 @@
       line-height: 1.5;
       flex-grow: 1;
     }
-    
+
     .add-to-cart {
       background-color: #252525;
       color: white;
@@ -157,11 +157,11 @@
       transition: background-color 0.3s ease;
       font-size: 16px;
     }
-    
+
     .add-to-cart:hover {
       background-color: #5e5e5e;
     }
-    
+
     .category-filter {
       display: flex;
       justify-content: center;
@@ -169,7 +169,7 @@
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
-    
+
     .filter-btn {
       padding: 8px 20px;
       background: #fff;
@@ -178,13 +178,13 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    
+
     .filter-btn:hover, .filter-btn.active {
       background: #252525;
       color: white;
       border-color: #252525;
     }
-    
+
     footer {
       background-color: #252525;
       color: #FFFFFF;
@@ -192,7 +192,7 @@
       text-align: center;
       margin-top: 60px;
     }
-    
+
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
@@ -201,55 +201,55 @@
       gap: 30px;
       text-align: left;
     }
-    
+
     .footer-section h3 {
       margin-bottom: 20px;
       font-size: 18px;
     }
-    
+
     .footer-section ul {
       list-style: none;
       padding: 0;
     }
-    
+
     .footer-section ul li {
       margin-bottom: 10px;
     }
-    
+
     .footer-section ul li a {
       color: #ddd;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    
+
     .footer-section ul li a:hover {
       color: #5e5e5e;
     }
-    
+
     .copyright {
       margin-top: 40px;
       padding-top: 20px;
       border-top: 1px solid #444444;
     }
-    
+
     /* Responsive adjustments */
     @media (max-width: 1024px) {
       .product-card {
         width: calc(33.333% - 30px); /* 3 items per row */
       }
     }
-    
+
     @media (max-width: 768px) {
       .product-card {
         width: calc(50% - 30px); /* 2 items per row */
       }
     }
-    
+
     @media (max-width: 480px) {
       .product-card {
         width: 100%; /* 1 item per row */
       }
-      
+
       .category-filter {
         flex-direction: column;
         align-items: center;
@@ -264,157 +264,151 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="camping-gear.html" class="active">Camping Tents</a></li>
+        <li><a href="tent.html" class="active">Camping Tents</a></li>
         <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <h1>Camping Tents</h1>
     <div class="intro-text">
       <p>Explore our premium selection of camping tents designed for every outdoor adventure. From lightweight backpacking tents to spacious family shelters, we have the perfect tent for your needs.</p>
     </div>
-    
+
     <div class="category-filter">
-      <button class="filter-btn active">All Tents</button>
+      <button class="filter-btn active">All</button>
       <button class="filter-btn">Backpacking</button>
       <button class="filter-btn">Family</button>
       <button class="filter-btn">4-Season</button>
-      <button class="filter-btn">Pop-Up</button>
+      <button class="filter-btn">Specialty</button>
     </div>
-    
+
     <div class="products-container">
-      <!-- Tent 1 -->
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Explorer 4-Person Dome Tent.jpg" alt="4-Person Dome Tent" class="product-image">
+          <img src="img/Explorer%204-Person%20Dome%20Tent.jpg" alt="4-Person Dome Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Explorer 4-Person Dome Tent</h3>
-          <div class="product-price">$219.99</div>
-          <p class="product-description">Weather-resistant dome tent with 64 sq ft of space, waterproof rainfly, and ventilation windows. Easy setup in 10 minutes. Perfect for family camping.</p>
+          <div class="product-price">$199.99</div>
+          <p class="product-description">Spacious dome tent with weather-resistant fly and excellent ventilation. Easy setup with color-coded poles.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 2 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Trailblazer 2-Person Backpacking Tent.jpg" alt="2-Person Backpacking Tent" class="product-image">
+          <img src="img/Trailblazer%202-Person%20Backpacking%20Tent.jpg" alt="2-Person Backpacking Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Trailblazer 2-Person Backpacking Tent</h3>
-          <div class="product-price">$299.99</div>
-          <p class="product-description">Ultralight tent (3.5 lbs) with aluminum poles. Waterproof and breathable. Quick setup with color-coded clips. Perfect for hiking and backpacking.</p>
+          <div class="product-price">$249.99</div>
+          <p class="product-description">Ultralight tent for backpackers with durable waterproof floor and mesh panels for ventilation.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 3 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Family Haven 6-Person Cabin Tent.jpg" alt="6-Person Cabin Tent" class="product-image">
+          <img src="img/Family%20Haven%206-Person%20Cabin%20Tent.jpg" alt="6-Person Cabin Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Family Haven 6-Person Cabin Tent</h3>
           <div class="product-price">$349.99</div>
-          <p class="product-description">Spacious cabin-style tent with 90 sq ft and 6'4" center height. Features room divider, gear loft, and electrical cord access port.</p>
+          <p class="product-description">Roomy cabin-style tent with divider curtain for privacy and large windows for panoramic views.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 4 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Summit Pro 4-Season Mountaineering Tent.jpg" alt="4-Season Mountaineering Tent" class="product-image">
+          <img src="img/Summit%20Pro%204-Season%20Mountaineering%20Tent.jpg" alt="4-Season Mountaineering Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Summit Pro 4-Season Mountaineering Tent</h3>
           <div class="product-price">$499.99</div>
-          <p class="product-description">Heavy-duty tent designed for extreme conditions. Aluminum poles withstand high winds and snow loads. Includes snow skirts and reinforced guylines.</p>
+          <p class="product-description">Extreme weather tent with reinforced poles and snow skirts for winter camping and mountaineering.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 5 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/QuickPitch 2-Person Pop-Up Tent.jpg" alt="Instant Pop-Up Tent" class="product-image">
+          <img src="img/QuickPitch%202-Person%20Pop-Up%20Tent.jpg" alt="Instant Pop-Up Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">QuickPitch 2-Person Pop-Up Tent</h3>
-          <div class="product-price">$159.99</div>
-          <p class="product-description">Sets up in 30 seconds! Pre-assembled poles spring into place. Includes rainfly and storage bag. Perfect for festivals and quick camping trips.</p>
+          <div class="product-price">$179.99</div>
+          <p class="product-description">Sets up in seconds with pre-attached poles. Perfect for festivals and quick overnight trips.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 6 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Overland Rooftop Camping Tent.jpg" alt="Rooftop Camping Tent" class="product-image">
+          <img src="img/Overland%20Rooftop%20Camping%20Tent.jpg" alt="Rooftop Camping Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Overland Rooftop Camping Tent</h3>
           <div class="product-price">$1,299.99</div>
-          <p class="product-description">Hard-shell rooftop tent with 3" memory foam mattress. Sets up in 60 seconds. Weatherproof and secure for off-road adventures.</p>
+          <p class="product-description">Vehicle-mounted tent with heavy-duty construction for off-road adventures and overlanding.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 7 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Featherlight 1-Person Backpacking Tent 2.jpg" alt="Ultralight Backpacking Tent" class="product-image">
+          <img src="img/Featherlight%201-Person%20Backpacking%20Tent%202.jpg" alt="Ultralight Backpacking Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Featherlight 1-Person Backpacking Tent</h3>
-          <div class="product-price">$249.99</div>
-          <p class="product-description">Superlight at just 2.1 lbs. Single-wall design with excellent ventilation. Includes stakes and repair kit. Ideal for thru-hikers.</p>
+          <div class="product-price">$299.99</div>
+          <p class="product-description">Super lightweight at just 2.1 lbs with premium materials for serious backpackers.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      
-      <!-- Tent 8 -->
+
       <div class="product-card">
         <div class="product-image-container">
-          <img src="img/Luxury Bell Glamping Tent.jpg" alt="Deluxe Glamping Tent" class="product-image">
+          <img src="img/Luxury%20Bell%20Glamping%20Tent.jpg" alt="Deluxe Glamping Tent" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Luxury Bell Glamping Tent</h3>
           <div class="product-price">$899.99</div>
-          <p class="product-description">Spacious 10' diameter bell tent with 360° views. Cotton canvas with waterproof lining. Includes groundsheet and mosquito netting.</p>
+          <p class="product-description">Spacious bell tent with standing room, windows, and elegant design for luxury camping.</p>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
     </div>
   </main>
+
   <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>Shop</h3>
         <ul>
-          <li><a href="#">Backpacking Tents</a></li>
-          <li><a href="#">Family Tents</a></li>
-          <li><a href="#">4-Season Tents</a></li>
-          <li><a href="#">Tent Accessories</a></li>
+          <li><a href="#">Tents</a></li>
+          <li><a href="#">Sleeping Bags</a></li>
+          <li><a href="#">Camp Furniture</a></li>
+          <li><a href="#">Cooking Gear</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h3>Customer Service</h3>
         <ul>
-          <li><a href="#">Tent Setup Guides</a></li>
+          <li><a href="#">Contact Us</a></li>
           <li><a href="#">FAQs</a></li>
           <li><a href="#">Shipping & Returns</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Size Guide</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h3>About OutdoorOasis</h3>
         <ul>
           <li><a href="#">Our Story</a></li>
-          <li><a href="#">Tent Care Tips</a></li>
-          <li><a href="#">Camping Blog</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Blog</a></li>
           <li><a href="#">Careers</a></li>
         </ul>
       </div>

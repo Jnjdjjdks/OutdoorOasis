@@ -7,10 +7,21 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom CSS for smoother modal animation */
+    .modal.fade .modal-dialog {
+      transform: scale(0.9);
+      transition: transform 0.3s ease-out;
+    }
+
+    .modal.show .modal-dialog {
+      transform: scale(1);
+    }
+  </style>
 </head>
- <Body>
+<body>
 <header class="OutdoorOasis">
   <div class="logo">OutdoorOasis</div>
   <nav>
@@ -18,17 +29,15 @@
         <li><a href="#home">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#categories">Categories</a></li>
-        <li><a href="#products">Top Products</a></li>
+        <li><a href="cart.html"> Products</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <!-- Cart Icon -->
         <li>
           <a href="cart.html" class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
           </a>
         </li>
-        <!-- User Icon (Login/Sign Up) -->
         <li>
-          <a href="#loginSignUpModalLabel" class="user-icon" data-bs-toggle="modal" data-bs-target="#loginSignUpModal">
+          <a href="#" class="user-icon" data-bs-toggle="modal" data-bs-target="#loginSignUpModal">
             <i class="fas fa-user"></i>
           </a>
         </li>
@@ -36,84 +45,110 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
 <section id="home" class="hero">
   <h1>Welcome to OutdoorOasis</h1>
   <p>Discover the best products and services tailored for you.</p>
   <a href="#categories" class="btn">Explore Categories</a>
 </section>
-  <!-- Bootstrap Login/Sign Up Modal -->
-  <div class="modal fade" id="loginSignUpModal" tabindex="-1" aria-labelledby="loginSignUpModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginSignUpModalLabel">Welcome Back!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Toggle Buttons -->
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up</button>
-            </li>
-          </ul>
-          <!-- Tab Content -->
-          <div class="tab-content" id="myTabContent">
-            <!-- Login Form -->
-            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-              <form class="mt-3">
-                <div class="mb-3">
-                  <input type="email" class="form-control" id="loginEmail" placeholder="Email" required>
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
-              </form>
+
+<div class="modal fade" id="loginSignUpModal" tabindex="-1" aria-labelledby="loginSignUpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-xl shadow-2xl border-none">
+      <div class="modal-header bg-gray-800 text-white border-b-0 rounded-t-xl py-4 px-6 flex justify-between items-center">
+        <h5 class="modal-title text-2xl font-bold" id="loginSignUpModalLabel">Welcome to OutdoorOasis!</h5>
+        <button type="button" class="btn-close text-white opacity-100" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body p-6 bg-gray-50">
+        <ul class="nav nav-tabs flex justify-center border-b-2 border-gray-200 mb-6" id="myTab" role="tablist">
+          <li class="nav-item flex-grow text-center" role="presentation">
+            <button class="nav-link w-full py-3 px-4 text-lg font-semibold text-gray-700 bg-white border-b-2 border-transparent rounded-t-lg transition-all duration-300 ease-in-out hover:text-blue-600 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 active" id="login-tab" data-bs-toggle="tab" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
+          </li>
+          <li class="nav-item flex-grow text-center" role="presentation">
+            <button class="nav-link w-full py-3 px-4 text-lg font-semibold text-gray-700 bg-white border-b-2 border-transparent rounded-t-lg transition-all duration-300 ease-in-out hover:text-blue-600 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+            <form class="mt-3 space-y-4">
+              <div>
+                <input type="email" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="loginEmail" placeholder="Email" required>
+              </div>
+              <div>
+                <input type="password" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="loginPassword" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn bg-blue-600 text-white w-full py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md">Login</button>
+            </form>
+
+            <div class="relative flex items-center justify-center my-6">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <span class="flex-shrink mx-4 text-gray-500 font-medium">OR</span>
+              <div class="flex-grow border-t border-gray-300"></div>
             </div>
-            <!-- Sign Up Form -->
-            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-              <form class="mt-3">
-                <div class="mb-3">
-                  <input type="text" class="form-control" id="signupName" placeholder="Full Name" required>
-                </div>
-                <div class="mb-3">
-                  <input type="email" class="form-control" id="signupEmail" placeholder="Email" required>
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-              </form>
+
+            <div class="space-y-3">
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleGoogleSignIn()">
+                <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google icon" class="w-6 h-6"> Continue with Google
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleMicrosoftSignIn()">
+                <img src="https://img.icons8.com/color/24/000000/microsoft.png" alt="Microsoft icon" class="w-6 h-6"> Continue with Microsoft Account
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleAppleSignIn()">
+                <i class="fab fa-apple text-2xl"></i> Continue with Apple
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handlePhoneSignIn()">
+                <i class="fas fa-phone text-xl"></i> Continue with phone
+              </button>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+            <form class="mt-3 space-y-4">
+              <div>
+                <input type="text" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="signupName" placeholder="Full Name" required>
+              </div>
+              <div>
+                <input type="email" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="signupEmail" placeholder="Email" required>
+              </div>
+              <div>
+                <input type="password" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="signupPassword" placeholder="Password" required>
+              </div>
+              <div>
+                <input type="password" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" id="signupConfirmPassword" placeholder="Confirm Password" required>
+              </div>
+              <button type="submit" class="btn bg-blue-600 text-white w-full py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md">Sign Up</button>
+            </form>
+
+            <div class="relative flex items-center justify-center my-6">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <span class="flex-shrink mx-4 text-gray-500 font-medium">OR</span>
+              <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            <div class="space-y-3">
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleGoogleSignIn()">
+                <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google icon" class="w-6 h-6"> Continue with Google
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleMicrosoftSignIn()">
+                <img src="https://img.icons8.com/color/24/000000/microsoft.png" alt="Microsoft icon" class="w-6 h-6"> Continue with Microsoft Account
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handleAppleSignIn()">
+                <i class="fab fa-apple text-2xl"></i> Continue with Apple
+              </button>
+              <button type="button" class="btn bg-white border border-gray-300 text-gray-800 w-full py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-3 hover:bg-gray-100 transition-colors duration-300 shadow-sm" onclick="handlePhoneSignIn()">
+                <i class="fas fa-phone text-xl"></i> Continue with phone
+              </button>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <p>Don't have an account? <a href="#" id="switchToSignUp">Sign Up</a></p>
-        </div>
+      </div>
+      <div class="modal-footer flex justify-center bg-gray-100 border-t-0 rounded-b-xl py-4">
+        <p class="text-gray-700 text-md">Already have an account? <a href="#" id="switchToLogin" class="text-blue-600 hover:underline font-semibold">Login</a></p>
       </div>
     </div>
   </div>
-  
+</div>
 
-  
-  <script>
-    // Switch to Sign Up tab when "Sign Up" link is clicked
-    document.getElementById('switchToSignUp').addEventListener('click', (event) => {
-      event.preventDefault();
-      const signUpTab = new bootstrap.Tab(document.getElementById('signup-tab'));
-      signUpTab.show();
-    });
-  </script>
-
-
-<!-- Categories & Discount Products Section -->
 <section id="categories" class="categories">
   <div class="container">
     <h2 class="section-title">Our Categories</h2>
@@ -140,149 +175,131 @@
   </div>
 </section>
 
+<section class="products-section">
+  <h2>Our Top Products</h2>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="img/imgtent.jpg" alt="Tent" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Tent'">
+      <h3>Tent</h3>
+      <p>(Single, Double, Family-sized, Waterproof)</p>
+      <div class="price">$99.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
 
+    <div class="product-card">
+      <img src="img/imgnewbp.jpg" alt="Product 2" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Backpack'">
+      <h3>Backpack</h3>
+      <p>Camping, Hiking Backpacks.</p>
+      <div class="price">$129.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
 
-  <h1>Our Top Products
-<div class="product-list">  
-  <!-- Product 1 -->
-  <div class="product-card">
-    <img src="img/imgtent.jpg" alt="">
-    <h3>Tent</h3>
-    <p>(Single, Double, Family-sized, Waterproof)</p>
-    <div class="price">$99.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
+    <div class="product-card">
+      <img src="img/imgfirstaid.jpg" alt="Product 3" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=First+Aid'">
+      <h3>Outdoor First Aid Kit</h3>
+      <p>Your Essential First Aid Companion.</p>
+      <div class="price">$40</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="img/imgboot.jpg" alt="Product 4" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Outdoor+Boot'">
+      <h3>Outdoor Boot</h3>
+      <p>High-Quality Boot</p>
+      <div class="price">$149.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="img/imgnightgg.jpg" alt="Night Gear" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Night+Gear'">
+      <h3>Night Gear Set</h3>
+      <p>High-Quality Night Gear for Outdoor Adventures</p>
+      <div class="price">$129.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="img/imgsleepbag.jpg" alt="Sleeping Bag" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Sleeping+Bag'">
+      <h3>Outdoor Sleeping Bag</h3>
+      <p>Comfortable and Durable Sleeping Bag</p>
+      <div class="price">$89.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="img/imgweisshornsleepbag.jpg" alt="Weisshorn Sleeping Bag" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Weisshorn+Sleeping+Bag'">
+      <h3>Weisshorn Sleeping Bag</h3>
+      <p>Premium Cold-Weather Sleeping Bag</p>
+      <div class="price">$199.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="img/imgcrapfishing.jpg" alt="Fishing Gear" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Fishing+Gear'">
+      <h3>Fishing Gear Set</h3>
+      <p>Complete Fishing Kit for Beginners</p>
+      <div class="price">$59.99</div>
+      <button class="add-to-cart">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+    </div>
   </div>
+</section>
 
-  <!-- Product 2 -->
-  <div class="product-card">
-    <img src="img/imgnewbp.jpg" alt="Product 2">
-    <h3>Backpack</h3>
-    <p>Camping, Hiking Backpacks.</p>
-    <div class="price">$129.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 3 -->
-  <div class="product-card">
-    <img src="img/imgfirstaid.jpg" alt="Product 3">
-    <h3>Outdoor First Aid Kit</h3>
-    <p>Your Essential First Aid Companion.</p>
-    <div class="price">$40</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 4 -->
-  <div class="product-card">
-    <img src="img/imgboot.jpg" alt="Product 4">
-    <h3>Outdoor Boot</h3>
-    <p>High-Quality Boot</p>
-    <div class="price">$149.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 5 -->
-  <div class="product-card">
-    <img src="img/imgnightgg.jpg" alt="Night Gear">
-    <h3>Night Gear Set</h3>
-    <p>High-Quality Night Gear for Outdoor Adventures</p>
-    <div class="price">$129.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 6 -->
-  <div class="product-card">
-    <img src="img/imgsleepbag.jpg" alt="Sleeping Bag">
-    <h3>Outdoor Sleeping Bag</h3>
-    <p>Comfortable and Durable Sleeping Bag</p>
-    <div class="price">$89.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 7 -->
-  <div class="product-card">
-    <img src="img/imgweisshornsleepbag.jpg" alt="Weisshorn Sleeping Bag">
-    <h3>Weisshorn Sleeping Bag</h3>
-    <p>Premium Cold-Weather Sleeping Bag</p>
-    <div class="price">$199.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-
-  <!-- Product 8 -->
-  <div class="product-card">
-    <img src="img/imgcrapfishing.jpg" alt="Fishing Gear">
-    <h3>Fishing Gear Set</h3>
-    <p>Complete Fishing Kit for Beginners</p>
-    <div class="price">$59.99</div>
-    <button class="add-to-cart">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-</div>
-
-</body>
-<!-- Camping Gallery Section -->
 <section class="gallery-section">
   <h2>Camping Gallery</h2>
   <div class="gallery-container">
-    <!-- Image 1 -->
     <div class="gallery-item">
-      <img src="img/imgForest Camping.jpg" alt="Camping in the Forest">
+      <img src="img/imgForest%20Camping.jpg" alt="Camping in the Forest" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Forest+Camping'">
       <p>Forest Camping</p>
     </div>
-    <!-- Image 2 -->
     <div class="gallery-item">
-      <img src="img/imgNightCampfire.jpg" alt="Campfire at Night">
+      <img src="img/imgNightCampfire.jpg" alt="Campfire at Night" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Night+Campfire'">
       <p>Night Campfire</p>
     </div>
-    <!-- Image 3 -->
     <div class="gallery-item">
-      <img src="img/imgTentSetup.jpg" alt="Tent Setup">
+      <img src="img/imgTentSetup.jpg" alt="Tent Setup" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Tent+Setup'">
       <p>Tent Setup</p>
     </div>
-    <!-- Image 4 -->
     <div class="gallery-item">
-      <img src="img/imgMountainCamping.jpg" alt="Mountain Camping">
+      <img src="img/imgMountainCamping.jpg" alt="Mountain Camping" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Mountain+Camping'">
       <p>Mountain Camping</p>
     </div>
-    <!-- Image 5 -->
     <div class="gallery-item">
-      <img src="img/imglakeside.jpg" alt="Camping by the Lake">
+      <img src="img/imglakeside.jpg" alt="Camping by the Lake" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Lakeside+Camping'">
       <p>Lakeside Camping</p>
     </div>
-    <!-- Image 6 -->
     <div class="gallery-item">
-      <img src="img/imgHiking Adventure.jpg" alt="Hiking and Camping">
+      <img src="img/imgHiking%20Adventure.jpg" alt="Hiking and Camping" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Hiking+Adventure'">
       <p>Hiking Adventure</p>
     </div>
   </div>
 </section>
-<!-- Footer -->
+
 <footer style="background-color: #252525; color: #FFFFFF; padding: 60px 0 30px;">
   <div class="container">
     <div class="row">
-      <!-- About Section -->
       <div class="col-lg-4 col-md-6 mb-4">
         <h5 style="color: #3498DB; font-weight: bold; margin-bottom: 20px; font-size: 1.25rem;">OutdoorOasis</h5>
         <p style="color: #E0E0E0; font-size: 14px; line-height: 1.6; max-width: 300px;">
           Your ultimate destination for premium outdoor gear and adventure essentials. Explore the world with confidence and style.
         </p>
       </div>
-      
-      <!-- Quick Links -->
+
       <div class="col-lg-2 col-md-6 mb-4">
         <h5 style="color: #3498DB; font-weight: bold; margin-bottom: 20px; font-size: 1.1rem;">Quick Links</h5>
         <ul style="list-style: none; padding: 0;">
@@ -300,8 +317,7 @@
           </li>
         </ul>
       </div>
-      
-      <!-- Contact Info -->
+
       <div class="col-lg-3 col-md-6 mb-4">
         <h5 style="color: #3498DB; font-weight: bold; margin-bottom: 20px; font-size: 1.1rem;">Contact Us</h5>
         <ul style="list-style: none; padding: 0;">
@@ -323,27 +339,23 @@
           </li>
         </ul>
       </div>
-      <!-- Newsletter -->
-<div class="col-lg-3 col-md-6 mb-4">
-  <h5 style="color: #3498DB; font-weight: bold; margin-bottom: 8px; font-size: 1rem;">Newsletter</h5>
-  <p style="color: #E0E0E0; font-size: 13px; margin-bottom: 15px; line-height: 1.4;">
-    Subscribe for updates & offers
-  </p>
-  <form style="display: flex; max-width: 280px;">
-    <input type="email" placeholder="Your email" style="flex: 1; padding: 8px 12px; border: none; border-radius: 3px 0 0 3px; font-size: 13px;">
-    <button type="submit" style="background-color: #3498DB; color: white; border: none; padding: 0 12px; border-radius: 0 3px 3px 0; cursor: pointer; font-size: 13px;">
-      <i class="fas fa-paper-plane"></i>
-    </button>
-  </form>
-</div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 style="color: #3498DB; font-weight: bold; margin-bottom: 8px; font-size: 1rem;">Newsletter</h5>
+        <p style="color: #E0E0E0; font-size: 13px; margin-bottom: 15px; line-height: 1.4;">
+          Subscribe for updates & offers
+        </p>
+        <form style="display: flex; max-width: 280px;">
+          <input type="email" placeholder="Your email" style="flex: 1; padding: 8px 12px; border: none; border-radius: 3px 0 0 3px; font-size: 13px;">
+          <button type="submit" style="background-color: #3498DB; color: white; border: none; padding: 0 12px; border-radius: 0 3px 3px 0; cursor: pointer; font-size: 13px;">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
 
-<hr style="border-color: #444; margin: 20px 0; border-width: 1px;">
-      
-      
-    
-    
+    <hr style="border-color: #444; margin: 20px 0; border-width: 1px;">
+
     <div class="row align-items-center">
-      <!-- Social Media -->
       <div class="col-md-6 mb-3 mb-md-0">
         <div style="display: flex; gap: 20px;">
           <a href="#" style="color: #E0E0E0; text-decoration: none; font-size: 18px; transition: color 0.3s;">
@@ -363,11 +375,10 @@
           </a>
         </div>
       </div>
-      
-      <!-- Copyright -->
+
       <div class="col-md-6 text-md-end">
         <p style="color: #E0E0E0; font-size: 13px; margin: 0;">
-          &copy; 2023 OutdoorOasis. All rights reserved. 
+          &copy; 2023 OutdoorOasis. All rights reserved.
           <span style="margin: 0 10px;">|</span>
           <a href="#" style="color: #E0E0E0; text-decoration: none;">Privacy Policy</a>
           <span style="margin: 0 10px;">|</span>
@@ -378,4 +389,51 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Placeholder functions for social sign-in
+  function handleGoogleSignIn() {
+    console.log("Continue with Google clicked. (Requires backend integration)");
+    // Implement Google OAuth flow here
+  }
+
+  function handleMicrosoftSignIn() {
+    console.log("Continue with Microsoft Account clicked. (Requires backend integration)");
+    // Implement Microsoft OAuth flow here
+  }
+
+  function handleAppleSignIn() {
+    console.log("Continue with Apple clicked. (Requires backend integration)");
+    // Implement Apple OAuth flow here
+  }
+
+  function handlePhoneSignIn() {
+    console.log("Continue with phone clicked. (Requires backend integration)");
+    // Implement phone number authentication flow here
+  }
+
+  // Switch to Sign Up tab when "Sign Up" link is clicked
+  document.getElementById('switchToSignUp').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+      const signUpTab = new bootstrap.Tab(document.getElementById('signup-tab'));
+      signUpTab.show();
+    } else {
+      console.error("Bootstrap JavaScript not loaded correctly.");
+    }
+  });
+
+  // Switch to Login tab when "Login" link is clicked in the modal footer
+  document.getElementById('switchToLogin').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+      const loginTab = new bootstrap.Tab(document.getElementById('login-tab'));
+      loginTab.show();
+    } else {
+      console.error("Bootstrap JavaScript not loaded correctly.");
+    }
+  });
+</script>
+
+</body>
 </html>

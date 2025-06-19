@@ -72,7 +72,7 @@ header {
 }
 
 .nav-links li a:not(.cart-icon, .user-icon):hover {
-  color: #2e8b57;
+  color: #555555;
 }
 
 .nav-links li a:not(.cart-icon, .user-icon)::after {
@@ -82,7 +82,7 @@ header {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #2e8b57;
+  background-color: #3c3c3c;
   transition: width 0.3s ease;
 }
 
@@ -98,7 +98,7 @@ header {
 }
 
 .cart-icon:hover, .user-icon:hover {
-  color: #2e8b57;
+  color: #3a3a3a;
 }
 
 /* Badge for cart items */
@@ -282,7 +282,7 @@ header {
 }
 
 .cta-button {
-  background: #4CAF50;
+  background: #464646;
   border: none;
   color: white;
   padding: 12px 24px;

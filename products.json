@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Multi-tool or Knife",
+        "price": 29.99,
+        "description": "A versatile multi-tool or durable knife, essential for various outdoor tasks from cutting rope to opening cans.",
+        "image": "img/Multi-tool or Knife.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Camping Stove & Fuel",
+        "price": 100,
+        "description": "Compact and efficient camping stove with fuel, perfect for cooking hot meals and brewing coffee in the wilderness.",
+        "image": "img/Camping Stove.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Headlamp",
+        "price": 99.99,
+        "description": "Powerful and hands-free headlamp with multiple brightness settings, crucial for navigating trails and setting up camp after dark.",
+        "image": "img/headlamp.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Air Mattress",
+        "price": 200,
+        "description": "Comfortable inflatable air mattress for a good night's sleep, providing insulation from the cold ground and enhancing comfort.",
+        "image": "img/Air Mattress.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Sleeping Bag",
+        "price": 199.99,
+        "description": "Warm and lightweight sleeping bag, designed for specific temperature ratings to keep you cozy during cold nights outdoors.",
+        "image": "img/Sleeping Bag.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Aluminum Water Bottle",
+        "price": 79.99,
+        "description": "Durable and reusable aluminum water bottle, vital for staying hydrated on your outdoor adventures and treks.",
+        "image": "img/Water Bottle.jpg"
+    },
+    {
+        "id": 7,
+        "name": "First Aid Kit",
+        "price": 29.99,
+        "description": "Comprehensive first aid kit with essential supplies for treating minor injuries and emergencies in the backcountry.",
+        "image": "img/First Aid Kit First Aid Kit.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Flashlight",
+        "price": 39.99,
+        "description": "Reliable and bright flashlight, providing a focused beam for scouting paths or finding items in the dark.",
+        "image": "img/Flashlight.jpg"
+    }
+]
